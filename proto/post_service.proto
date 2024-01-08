@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package pb;
+
+option go_package = "grpc-crud";
+import "post.proto";
+import "rpc_create_post.proto";
+
+service PostService{
+  rpc CreatePost(CreatePostRequest) returns (PostResponse){}
+}

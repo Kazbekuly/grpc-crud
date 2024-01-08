@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package pb;
+
+option go_package = "grpc-crud";
+
+message CreatePostRequest {
+  string Title = 1;
+  string Text = 2;
+  string Image = 3;
+  string User = 4;
+}
