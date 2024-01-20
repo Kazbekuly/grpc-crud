@@ -38,3 +38,23 @@ type DbResponse struct {
 	CreatedAt          time.Time          `json:"createdAt" bson:"createdAt"`
 	UpdatedAt          time.Time          `json:"updatedAt" bson:"updatedAt"`
 }
+
+type UserResponse struct {
+	Id        primitive.ObjectID `json:"id,omitempty" bson:"id,omitempty"`
+	Name      string             `json:"name,omitempty" bson:"name,omitempty"`
+	Email     string             `json:"email,omitempty" bson:"email,omitempty"`
+	Role      string             `json:"role,omitempty" bson:"role,omitempty"`
+	CreatedAt time.Time          `json:"createdAt" bson:"createdAt"`
+	UpdatedAt time.Time          `json:"updatedAt" bson:"updatedAt"`
+}
+
+func FilteredResponse(user *DbResponse) UserResponse {
+	return UserResponse{
+		Id:        user.Id,
+		Name:      user.Name,
+		Email:     user.Email,
+		Role:      user.Role,
+		CreatedAt: user.CreatedAt,
+		UpdatedAt: user.UpdatedAt,
+	}
+}
